@@ -1,0 +1,13 @@
+.header {
+    background-color: black;
+    color:white !important;
+    font-family: 'Courgette', cursive;
+    height: 7vh;
+}
+.header a {
+    text-decoration: none !important;
+    color: white !important;
+}
+.header a:hover {
+    color: lightgray;
+}
