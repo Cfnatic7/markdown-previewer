@@ -5,9 +5,12 @@
     height: 7vh;
 }
 .header a {
-    text-decoration: none !important;
+    text-decoration: underline !important;
     color: white !important;
 }
 .header a:hover {
     color: lightgray;
+}
+.header h3 {
+    padding-left: 1%;
 }

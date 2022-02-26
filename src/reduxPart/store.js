@@ -45,11 +45,15 @@ const inputSlice = createSlice({
     1. Use just 1s if you want!
     1. And last but not least, let's not forget embedded images:
     
-    ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)`
+    ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)`,
+    isInputEnlarged: false
   },
   reducers: {
     updateInput: (state, action) => {
       state.input = action.payload;
+    },
+    toggleInputEnlargement: (state) => {
+      state.isInputEnlarged = !state.isInputEnlarged;
     }
   }
 })
@@ -60,4 +64,4 @@ export const store = configureStore({
   },
 });
 
-export const {updateInput} = inputSlice.actions;
+export const {updateInput, toggleInputEnlargement} = inputSlice.actions;
