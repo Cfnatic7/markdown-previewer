@@ -23,10 +23,10 @@ export const Previewer = () => {
     return (<div className = 'container p-3'>
                 <div className = 'row'>
                     <div className = 'col-2'>
-                        <span>
+                        <h4>
                         <FontAwesomeIcon icon={faFreeCodeCamp} />
                         Previewer
-                        </span>
+                        </h4>
                     </div>
                     <div className = 'col-8 d-flex justify-content-center align-items-center'>
                         {enlargement ? minimizeIcon : expandIcon}
