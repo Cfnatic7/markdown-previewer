@@ -14,7 +14,7 @@ export const Input = () => {
     const dispatch = useDispatch();
     const expandIcon = <FontAwesomeIcon icon = {faChevronDown} className = 'enlargementIcon' onClick = {() => dispatch(toggleInputEnlargement())}/>;
     const minimizeIcon = <FontAwesomeIcon icon = {faChevronUp} className = 'enlargementIcon' onClick = {() => dispatch(toggleInputEnlargement())}/>;
-    return (<div className = 'container p-3'>
+    return (<div className = 'container p-3 w-50'>
                 <div className = 'row'>
                     <div className = 'col-2'>
                         <span>

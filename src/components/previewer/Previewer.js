@@ -4,12 +4,19 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { togglePreviewEnlargement } from '../../reduxPart/store';
+import { marked } from 'marked';
 
 export const Previewer = () => {
     const enlargement = useSelector(state => {
         return state.input.isPreviewEnlarged;
     })
-    let height = enlargement? {height: '75vh'} : {height: '20vh'};
+    const parsedInput = useSelector( state => {
+        return marked.parse(state.input.input);
+    })
+    const innerHTML = {
+        __html: parsedInput
+    };
+    let height = enlargement? {height: '75vh'} : {height: '40vh'};
     const dispatch = useDispatch();
     const expandIcon = <FontAwesomeIcon icon = {faChevronDown} className = 'enlargementIcon' onClick = {() => dispatch(togglePreviewEnlargement())}/>;
     const minimizeIcon = <FontAwesomeIcon icon = {faChevronUp} className = 'enlargementIcon' onClick = {() => dispatch(togglePreviewEnlargement())}/>;
@@ -25,7 +32,7 @@ export const Previewer = () => {
                         {enlargement ? minimizeIcon : expandIcon}
                     </div>
                 </div>
-                <div className = 'row preview' style = {height}>
+                <div className = 'row preview overflow-auto' style = {height} dangerouslySetInnerHTML = {innerHTML}>
                     
                 </div>
             </div>)
