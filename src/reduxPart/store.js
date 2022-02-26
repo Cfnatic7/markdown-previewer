@@ -46,7 +46,8 @@ const inputSlice = createSlice({
     1. And last but not least, let's not forget embedded images:
     
     ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)`,
-    isInputEnlarged: false
+    isInputEnlarged: false,
+    isPreviewEnlarged: false
   },
   reducers: {
     updateInput: (state, action) => {
@@ -54,6 +55,9 @@ const inputSlice = createSlice({
     },
     toggleInputEnlargement: (state) => {
       state.isInputEnlarged = !state.isInputEnlarged;
+    },
+    togglePreviewEnlargement: (state) => {
+      state.isPreviewEnlarged = !state.isPreviewEnlarged;
     }
   }
 })
@@ -64,4 +68,4 @@ export const store = configureStore({
   },
 });
 
-export const {updateInput, toggleInputEnlargement} = inputSlice.actions;
+export const {updateInput, toggleInputEnlargement, togglePreviewEnlargement} = inputSlice.actions;

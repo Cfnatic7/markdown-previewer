@@ -1,33 +1,32 @@
-import './Input.css'
+import './Previewer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import {updateInput, toggleInputEnlargement} from '../../reduxPart/store';
+import { togglePreviewEnlargement } from '../../reduxPart/store';
 
-export const Input = () => {
+export const Previewer = () => {
     const enlargement = useSelector(state => {
-        return state.input.isInputEnlarged;
+        return state.input.isPreviewEnlarged;
     })
     let height = enlargement? {height: '75vh'} : {height: '20vh'};
-    const textAreaInput = useSelector(state => state.input.input);
     const dispatch = useDispatch();
-    const expandIcon = <FontAwesomeIcon icon = {faChevronDown} className = 'enlargementIcon' onClick = {() => dispatch(toggleInputEnlargement())}/>;
-    const minimizeIcon = <FontAwesomeIcon icon = {faChevronUp} className = 'enlargementIcon' onClick = {() => dispatch(toggleInputEnlargement())}/>;
+    const expandIcon = <FontAwesomeIcon icon = {faChevronDown} className = 'enlargementIcon' onClick = {() => dispatch(togglePreviewEnlargement())}/>;
+    const minimizeIcon = <FontAwesomeIcon icon = {faChevronUp} className = 'enlargementIcon' onClick = {() => dispatch(togglePreviewEnlargement())}/>;
     return (<div className = 'container p-3'>
                 <div className = 'row'>
                     <div className = 'col-2'>
                         <span>
                         <FontAwesomeIcon icon={faFreeCodeCamp} />
-                        Editor
+                        Previewer
                         </span>
                     </div>
                     <div className = 'col-8 d-flex justify-content-center align-items-center'>
                         {enlargement ? minimizeIcon : expandIcon}
                     </div>
                 </div>
-                <div className = 'row'>
-                    <textarea className = 'form-control main-input' style = {height} value = {textAreaInput} spellcheck = 'false' onChange = {(e) => dispatch(updateInput(e.target.value))}></textarea>
+                <div className = 'row preview' style = {height}>
+                    
                 </div>
             </div>)
 }
