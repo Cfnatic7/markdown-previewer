@@ -1,5 +1,5 @@
 # Description
-This is a markdown prewiever project made for [freecodecamp's](https://www.freecodecamp.org) front end libraries course.
+This is a markdown prewiever project made for [freecodecamp's](https://www.freecodecamp.org) front end libraries course. You can see the deployment [here](https://cfnatic7.github.io/markdown-previewer/).
 
 ## Libraries used:
 - Redux
